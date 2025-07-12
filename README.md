@@ -14,11 +14,11 @@ The purpose on this mini-project is to simulate basic transactional data for a g
 * Each transaction consists of 2 to 5 items selected from a pool of 8 unique items:
     ['Milk', 'Bread', 'Beer', 'Diaper', 'Eggs', 'Butter', 'Coffee', 'Cereal', 'Salt']
 
-* The code that created the simulated data:
-![alt text](screenshots/image.png)
+* The code that created the simulated data:  
+![Simulated data code](screenshots/image.png)
 
-* Sample output:
-![alt text](screenshots/image-1.png)
+* Sample output:  
+![Simulated data sample output](screenshots/image-1.png)
 
 ---
 
@@ -30,8 +30,8 @@ To achieve this, we used `pandas.get_dammies()` to one-hot encode the transactio
 encoded_df = pd.get_dummies(df)
 ```
 
-* Sample output:
-![alt text](screenshots/image-3.png)
+* Sample output:  
+![One-hot encoded transactions](screenshots/image-3.png)
 
 The output takes the categorical variables and converts them to numerical variables in preparation for the apriori algorithm
 
@@ -46,8 +46,8 @@ We set the minimum support to 30%, meaning that the itemsets must appear in at l
 # Applying Apriori Algorithm
 frequent_itemsets = apriori(encoded_df, min_support=0.3, use_colnames=True)
 ```
-* Sample output:
-![alt text](screenshots/image-4.png)
+* Sample output:  
+![Apriori algorithm sample output](screenshots/image-4.png)
 
 ---
 
@@ -61,7 +61,7 @@ Finally, we used `association_rules` functions to generate rules based on:
 rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=0.7)
 ```
 In our case, we did not have an association between the products: 
-![alt text](screenshots/image-5.png)
+![Apriori rules output screenshot](screenshots/image-5.png)
 
 **Assuming there was an output**
 
